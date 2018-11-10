@@ -1,0 +1,19 @@
+{
+  "name": "outages-app",
+  "version": "1.0.0",
+  "description": "Southern California Edison coding challenge Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robertfarb/outages-app.git"
+  },
+  "author": "Robert Farb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robertfarb/outages-app/issues"
+  },
+  "homepage": "https://github.com/Robertfarb/outages-app#readme"
+}
