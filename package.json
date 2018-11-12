@@ -1,10 +1,11 @@
 {
   "name": "outages-app",
   "version": "1.0.0",
-  "description": "Southern California Edison coding challenge Application",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
