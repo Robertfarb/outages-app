@@ -39,6 +39,6 @@ app.use('/api/users', users);
 app.use('/api/outages', outages);
 
 // Start App on Localhost:5000
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, console.log(`Server is running on port ${port}`));
