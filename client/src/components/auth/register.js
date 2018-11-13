@@ -1,6 +1,39 @@
 import React, { Component } from 'react'
 
 class Register extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
+      errors: {}
+    }
+    this.update = this.update.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.currentTarget.value })
+    }
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+    }
+
+    console.log(newUser);
+  }
+
   render() {
     return (
       <div className="register">
@@ -9,20 +42,51 @@ class Register extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your Edison OM account</p>
-              <form action="create-profile.html">
+              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <input type="text" className="form-control form-control-lg" placeholder="Name" name="name" required />
+                  <input 
+                    type="text" 
+                    className="form-control form-control-lg" 
+                    placeholder="Name" 
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.update('name')}
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="email" className="form-control form-control-lg" placeholder="Email Address" name="email" />
+                  <input 
+                    type="email" 
+                    className="form-control form-control-lg" 
+                    placeholder="Email Address" 
+                    name="email"
+                    value={this.state.email} 
+                    onChange={this.update('email')}
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="password" className="form-control form-control-lg" placeholder="Password" name="password" />
+                  <input 
+                    type="password" 
+                    className="form-control form-control-lg" 
+                    placeholder="Password" 
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="password" className="form-control form-control-lg" placeholder="Confirm Password" name="password2" />
+                  <input 
+                    type="password"
+                    className="form-control form-control-lg" 
+                    placeholder="Confirm Password" 
+                    name="password2" 
+                    value={this.state.password2}
+                    onChange={this.update('password2')}
+                  />
                 </div>
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input 
+                  type="submit" 
+                  className="btn btn-info btn-block mt-4" 
+                />
               </form>
             </div>
           </div>
