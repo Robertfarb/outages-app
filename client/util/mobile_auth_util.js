@@ -7,6 +7,6 @@ export const getAuthToken = async () => {
   return token;
 };
 
-export const setAuthToken = token => AsyncStorage.setItem(TOKEN, token);
+export const setAuthToken = (token) => AsyncStorage.setItem(TOKEN, token);
 
 export const destroyAuthToken = () => AsyncStorage.setItem(TOKEN, '');

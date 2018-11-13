@@ -28,8 +28,6 @@ class LoginForm extends React.Component {
           placeholder="password"
           onChangeText={password => this.setState({ password })}
         />
-        {/* onPress={() => login(this.state)} */}
-        {/* onPress={() => createUser(this.state)} */}
         <View styles={styles.row}>
           <Button title="Log In"  onPress={() => console.log(this.state)}/>
           <Button title="Sign Up" onPress={() => console.log(this.state)}/>
