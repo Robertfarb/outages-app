@@ -16,7 +16,7 @@ const OutageSchema = new Schema({
     required: true
   },
   zipCode: {
-    type: Number,
+    type: String,
     required: true
   },
   address: {
@@ -24,7 +24,7 @@ const OutageSchema = new Schema({
     required: true
   },
   customersImpacted: {
-    type: Number,
+    type: String,
     required: true
   },
   startTime: {
@@ -39,7 +39,31 @@ const OutageSchema = new Schema({
   crewStatus: {
     type: String,
     required: true
-  }
+  },
+  updates: [
+    {
+      outageNum: {
+        type: String,
+        required: true
+      },
+      estimatedRestTime: {
+        type: Date,
+        required: true
+      },
+      crewArrivalTime: {
+        type: Date,
+        reqiured: true
+      },
+      delayReason: {
+        type: String,
+        required: true
+      },
+      completeRestTime: {
+        type: Date,
+        required: true
+      }
+    }
+  ]
 });
 
 Outage = mongoose.model('outages', OutageSchema);
