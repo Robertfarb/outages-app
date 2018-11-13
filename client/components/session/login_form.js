@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import styles from '../../styles/styles';
+import axios from 'axios';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -10,10 +11,25 @@ class LoginForm extends React.Component {
       email: '',
       password: '',
     };
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const user = {
+      email: this.state.email,
+      passowrd: this.state.password
+    }
+
+    axios.post('http://192.168.0.2:3000/api/users/login', user)
+      .then(result => console.log(result.data))
+      .catch(err => console.log(err))
   }
 
   render() {
-    // const { login, createUser, errors } = this.props;
+    const { login, createUser } = this.props;
+    console.log(this.props);
 
     return (
       <View>
@@ -29,7 +45,7 @@ class LoginForm extends React.Component {
           onChangeText={password => this.setState({ password })}
         />
         <View styles={styles.row}>
-          <Button title="Log In"  onPress={() => console.log(this.state)}/>
+          <Button title="Log In"  onPress={() => login(this.state)}/>
           <Button title="Sign Up" onPress={() => console.log(this.state)}/>
         </View>
 

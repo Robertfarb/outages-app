@@ -1,22 +1,17 @@
 import { connect } from 'react-redux';
-// import { createUser } from '../../actions/user_actions';
-// import { removeErrors } from '../../actions/errors_actions';
-// import { login } from '../../actions/session_actions';
+import { createUser } from '../../actions/user_actions';
+import { login } from '../../actions/session_actions';
 import LoginForm from './login_form';
 
-const mapStateToProps = ({ errors }) => ({
-  errors
+const mapStateToProps = () => ({
+  
 });
 
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
-  createUser: user => dispatch(createUser(user)),
-  clearErrors: () => dispatch(removeErrors())
+  createUser: user => dispatch(createUser(user))
 });
 
-const AuthContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Auth);
+const LoginFormContainer = connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 
-export default AuthContainer;
+export default LoginFormContainer;

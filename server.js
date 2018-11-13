@@ -4,11 +4,12 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/api/users');
 const outages = require('./routes/api/outages');
-
-// Require 
+const cors = require('cors');
 
 // Initialize express app
 const app = express();
+
+app.use(cors());
 
 // Body Parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
