@@ -1,11 +1,12 @@
 {
   "name": "outages-app",
   "version": "1.0.0",
-  "description": "Application to view and update power outage status SoCal Edison",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "server": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/Robertfarb/outages-app/issues"
   },
-  "homepage": "https://github.com/Robertfarb/outages-app#readme"
+  "homepage": "https://github.com/Robertfarb/outages-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.11",
+    "nodemon": "^1.18.6",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.9.0"
+  }
 }
