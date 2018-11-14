@@ -33,13 +33,16 @@ class OutageUpdateForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const estimatedRestTime = new Date(this.state.estimatedRestTime).toISOString();
+    const crewArrivalTime = new Date(this.state.crewArrivalTime).toISOString();
+    const completeRestTime = new Date(this.state.completeRestTime).toISOString();
 
     const newUpdate = {
       outageNum: this.state.outageNum,
-      estimatedRestTime: this.state.estimatedRestTime,
-      crewArrivalTime: this.state.crewArrivalTime,
+      estimatedRestTime,
+      crewArrivalTime,
       delayReason: this.state.delayReason,
-      completeRestTime: this.state.completeRestTime
+      completeRestTime
     }
 
     this.props.updateOutage(newUpdate, this.props.outage.outageNum);
@@ -73,7 +76,7 @@ class OutageUpdateForm extends Component {
                 <div className="form-group">
                 <label>Estimated Restoration Time
                   <input
-                    type="date"
+                    type="datetime-local"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.estimatedRestTime
                     })}
@@ -88,7 +91,7 @@ class OutageUpdateForm extends Component {
                 <div className="form-group">
                 <label>Crew Arrival Time
                   <input
-                    type="date"
+                    type="datetime-local"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.crewArrivalTime
                     })}
@@ -118,7 +121,7 @@ class OutageUpdateForm extends Component {
                 <div className="form-group">
                 <label>Complete Restoration Time
                   <input
-                    type="date"
+                    type="datetime-local"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.completeRestTime
                     })}

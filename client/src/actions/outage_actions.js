@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   RECEIVE_ALL_OUTAGES,
   RECEIVE_OUTAGE,
-  GET_ERRORS
+  GET_ERRORS,
+  UPDATE_OUTAGE,
 } from './types';
 
 // Get all Outages
@@ -42,15 +43,15 @@ export const receiveOutage = (outage) => ({
   payload: outage
 });
 
+export const receiveUpdatedOutage = (outage) => ({
+  type: UPDATE_OUTAGE,
+  payload: outage
+})
+
 // Add update to an outage
 export const updateOutage = (outage, outageId) => dispatch => {
   axios
     .post(`/api/outages/update/${outageId}`, outage)
-    .then(outage => dispatch(receiveOutage(outage.data)))
-    .catch(err => {
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response
-      })
-    })
+    .then(outage => dispatch(receiveUpdatedOutage(outage.data)))
+    .catch(err => { console.log(err)})
 }

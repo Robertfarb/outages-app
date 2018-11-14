@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { requestSingleOutage, updateOutage } from '../../actions/outage_actions';
+import moment from 'moment';
 import OutageUpdateForm from './outage_update_form';
 
 class OutageDetailCard extends Component {
@@ -41,17 +42,19 @@ class OutageDetailCard extends Component {
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <strong>Est. Restoration Time:</strong>{" "}
-                    {update.estimatedRestTime}
+                    {moment(update.estimatedRestTime).format("MMMM D, YYYY h:mm:ss a")}
                   </li>
                   <li className="list-group-item">
                     <strong>Crew Arrival Time:</strong>{" "}
-                    {update.crewArrivalTime}
+                    {moment(update.crewArrivalTime).format("MMMM D, YYYY h:mm:ss a")}
                   </li>
                   <li className="list-group-item">
-                    <strong>Delay Reason:</strong> {update.delayReason}
+                    <strong>Delay Reason:</strong> 
+                    {update.delayReason}
                   </li>
                   <li className="list-group-item">
-                    <strong>Complete Restoration Time:</strong> {update.completeRestTime}
+                    <strong>Complete Restoration Time:</strong> 
+                    {moment(update.completeRestTime).format("MMMM D, YYYY h:mm:ss a")}
                   </li>
                 </ul>
               </div>
@@ -61,7 +64,7 @@ class OutageDetailCard extends Component {
               updateOutage={this.props.updateOutage}
             />
           </div>
-          <div className="card-footer text-muted">{outage.startTime}</div>
+        <div className="card-footer text-muted">{moment(outage.startTime).format("MMMM D, YYYY")}</div>
         </div>;
     }
   }
