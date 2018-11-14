@@ -38,7 +38,7 @@ class OutageDetailCard extends Component {
           <p className="card-text"><strong>Start Time:</strong> {outage.startTime}</p>
             <h2>Updates:</h2>{updates.map((update, idx) => (
               <div className="m-4 card text-left" key={idx}>
-                <h3>Update {idx + 1}</h3>
+                <h3>Update {Math.abs(idx - updates.length)}</h3>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <strong>Est. Restoration Time:</strong>{" "}
