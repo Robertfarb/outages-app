@@ -35,9 +35,22 @@ export const requestSingleOutage = ( outageId ) => dispatch => {
 export const receiveAllOutages = (outages) => ({
   type: RECEIVE_ALL_OUTAGES,
   payload: outages
-})
+});
 
 export const receiveOutage = (outage) => ({
   type: RECEIVE_OUTAGE,
   payload: outage
-})
+});
+
+// Add update to an outage
+export const updateOutage = (outage, outageId) => dispatch => {
+  axios
+    .post(`/api/outages/update/${outageId}`, outage)
+    .then(outage => dispatch(receiveOutage(outage.data)))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response
+      })
+    })
+}
