@@ -10,11 +10,11 @@ import {
 export const requestAllOutages = () => dispatch => {
   axios
     .get('/api/outages/')
-    .then(outages => console.log(outages.data))
+    .then(outages => dispatch(receiveAllOutages(outages.data)))
     .catch(err => 
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 }
