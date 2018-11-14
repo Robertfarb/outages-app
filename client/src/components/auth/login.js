@@ -22,12 +22,10 @@ class Login extends Component {
     e.preventDefault();
 
     const newUser = {
-      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2,
     }
-
+    
     console.log(newUser);
   }
 
@@ -40,7 +38,7 @@ class Login extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">Sign in to your Edison OM</p>
-              <form action="dashboard.html">
+              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input 
                     type="email" 
