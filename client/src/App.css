@@ -32,3 +32,12 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+#logout-button {
+  background: #333a41;
+  border: none;
+}
+
+#logout-button:hover {
+  cursor: pointer;
+}

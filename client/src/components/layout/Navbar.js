@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
-import { AuthRoute, ProtectedRoute } from "../../util/route_util";
+import { logoutUser } from '../../actions/auth_actions';
 
 class Navbar extends Component {
   
@@ -13,7 +12,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
@@ -23,7 +22,7 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.onLogoutClick.bind(this)} className="nav-link">Logout</a>
+          <button id="logout-button" onClick={this.onLogoutClick.bind(this)} className="nav-link">Logout</button>
         </li>
       </ul>
     );
