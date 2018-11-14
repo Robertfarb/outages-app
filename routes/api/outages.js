@@ -65,7 +65,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 // @desc GET Outage Details
 // @access Private
 router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Outage.findById(req.params.id)
+  Outage.find({ outageNum: req.params.id })
     .then(outage => res.json(outage))
     .catch(err => res.status(404).json({ noOutageFound: 'No Outage found' }));
 });

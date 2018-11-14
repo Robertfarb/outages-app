@@ -13,6 +13,7 @@ import Landing from "./components/layout/Landing";
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
 import OutageIndex from "./components/outages/outage_index";
+import OutageDetailCard from "./components/outages/outage_detail_card";
 import './App.css';
 
 // Check for User's jwtToken
@@ -43,7 +44,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <ProtectedRoute exact path="/outages" component={OutageIndex}/>
-              <ProtectedRoute path="/outages/:outageId" component={OutageIndex}/>
+              <ProtectedRoute exact path="/outages/:outageId" component={OutageDetailCard}/>
             </div>
             <Footer />
           </div>

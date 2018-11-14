@@ -12,7 +12,7 @@ const outageReducer = (state = initialState, action) => {
     case RECEIVE_ALL_OUTAGES:
       return Object.assign(newState, action.payload)
     case RECEIVE_OUTAGE:
-      return merge(newState, state, {[action.payload.outage.outageNum]: action.payload.outage.outageNum})
+      return Object.assign(newState, {[action.payload[0].outageNum]: action.payload[0]})
     default:
       return state;
   }

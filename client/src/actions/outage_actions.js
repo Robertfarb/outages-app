@@ -14,20 +14,20 @@ export const requestAllOutages = () => dispatch => {
     .catch(err => 
       dispatch({
         type: GET_ERRORS,
-        payload: err.response
+        payload: err.response.data
       })
     );
 }
 
 // Get a single outage
-export const requestSingleOutage = ( outage ) => dispatch => {
+export const requestSingleOutage = ( outageId ) => dispatch => {
   axios
-    .get(`/api/outages/${outage.outageNum}`)
+    .get(`/api/outages/${outageId}`)
     .then(outage => dispatch(receiveOutage(outage.data)))
     .catch(err => 
       dispatch({
         type: GET_ERRORS,
-        payload: err.response
+        payload: err.response.data
       })
     );
 }
