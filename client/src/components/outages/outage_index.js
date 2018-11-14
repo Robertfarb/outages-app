@@ -17,8 +17,10 @@ class OutageIndex extends Component {
       <div className="outage-index">
         <h1 className="text-center">Outages</h1>
         { 
-          outages.map(outage => (
-            <OutageIndexItem 
+          outages.map((outage, idx) => (
+            <OutageIndexItem
+              key={idx}
+              history={this.props.history}
               outageNum={outage.outageNum}
               locationCity={outage.locationCity}
               outageType={outage.outageType}
@@ -29,9 +31,12 @@ class OutageIndex extends Component {
   }
 }
 
-// OutageIndex.propTypes = {
-  
-// }
+OutageIndex.propTypes = {
+  requestAllOutages: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  outages: PropTypes.object.isRequired
+}
 
 const mapStateToProps = state => ({
   auth: state.auth,

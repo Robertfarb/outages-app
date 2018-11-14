@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_OUTAGES, RECEIVE_OUTAGE} from "../actions/types";
-import merge from 'lodash/merge'
+import merge from 'lodash/merge';
 
 
 const initialState = {};
@@ -12,8 +12,7 @@ const outageReducer = (state = initialState, action) => {
     case RECEIVE_ALL_OUTAGES:
       return Object.assign(newState, action.payload)
     case RECEIVE_OUTAGE:
-      return {};
-      // return merge(newState, state, {[action.payload.outage.id]: outage.id})
+      return merge(newState, state, {[action.payload.outage.outageNum]: action.payload.outage.outageNum})
     default:
       return state;
   }

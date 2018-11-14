@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default ( props ) => {
   return (
@@ -9,7 +9,7 @@ export default ( props ) => {
       <div className="card-body">
         <h4 className="card-title">Outage Type: {props.outageType}</h4>
         <p className="card-text">Outage City: {props.locationCity}</p>
-        <button href="#" className="btn btn-primary" onClick={() => console.log("Clicked!")}>See Details</button>
+        <button href="#" className="btn btn-primary" onClick={() => props.history.push(`outages/${props.outageNum}`)}>See Details</button>
       </div>
     </div>
   )

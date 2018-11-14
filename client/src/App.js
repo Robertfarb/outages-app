@@ -42,7 +42,8 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <ProtectedRoute path="/outages" component={OutageIndex}/>
+              <ProtectedRoute exact path="/outages" component={OutageIndex}/>
+              <ProtectedRoute path="/outages/:outageId" component={OutageIndex}/>
             </div>
             <Footer />
           </div>
