@@ -45,6 +45,12 @@ class Register extends Component {
     this.props.registerUser(newUser, this.props.history);
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/outages');
+    }
+  }
+
   render() {
     const { errors } = this.state;
 
@@ -80,7 +86,7 @@ class Register extends Component {
                     value={this.state.email} 
                     onChange={this.update('email')}
                   />
-                  {errors.name && (<div className="invalid-feedback">{errors.email}</div>)}
+                  {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                 </div>
                 <div className="form-group">
                   <input 
