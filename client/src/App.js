@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
-import { setCurrentUser, logoutUser } from './actions/authActions';
+import { setCurrentUser, logoutUser } from './actions/auth_actions';
 import { AuthRoute, ProtectedRoute } from './util/route_util';
 
 import NavBar from "./components/layout/Navbar";
@@ -12,6 +12,7 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
+import OutageIndex from "./components/outages/outage_index";
 import './App.css';
 
 // Check for User's jwtToken
@@ -41,6 +42,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <ProtectedRoute path="/outages" component={OutageIndex}/>
             </div>
             <Footer />
           </div>
