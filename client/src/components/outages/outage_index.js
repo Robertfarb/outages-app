@@ -7,7 +7,6 @@ import OutageIndexItem from './outage_index_item';
 class OutageIndex extends Component {
   componentDidMount() {
     this.props.requestAllOutages();
-    console.log(this.props.outages)
   }
 
   render() {

@@ -5,7 +5,7 @@ import store from './store/store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { setCurrentUser, logoutUser } from './actions/auth_actions';
-import { AuthRoute, ProtectedRoute } from './util/route_util';
+import { ProtectedRoute } from './util/route_util';
 
 import NavBar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";

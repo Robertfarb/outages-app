@@ -60,9 +60,6 @@ class OutageDetailCard extends Component {
               outage={outage}
               updateOutage={this.props.updateOutage}
             />
-            <a href="#" className="btn btn-primary">
-              Go somewhere
-            </a>
           </div>
           <div className="card-footer text-muted">{outage.startTime}</div>
         </div>;

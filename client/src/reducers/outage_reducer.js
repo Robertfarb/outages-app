@@ -1,5 +1,4 @@
 import { RECEIVE_ALL_OUTAGES, RECEIVE_OUTAGE} from "../actions/types";
-import merge from 'lodash/merge';
 
 
 const initialState = {};
