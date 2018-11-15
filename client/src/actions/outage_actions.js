@@ -25,11 +25,12 @@ export const requestSingleOutage = ( outageId ) => dispatch => {
   axios
     .get(`/api/outages/${outageId}`)
     .then(outage => dispatch(receiveOutage(outage.data)))
-    .catch(err => 
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
+    .catch(err =>
+      console.log(err)
+      // dispatch({
+      //   type: GET_ERRORS,
+      //   payload: err.response.data
+      // })
     );
 }
 

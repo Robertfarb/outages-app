@@ -17,6 +17,7 @@ import OutageDetailCard from "./components/outages/outage_detail_card";
 import './App.css';
 
 // Check for User's jwtToken
+// Use Async Storage for React-Native version
 if(localStorage.jwtToken) {
   const jwtToken = localStorage.jwtToken;
 

@@ -13,10 +13,10 @@ class OutageDetailCard extends Component {
 
   render() {
     const outage = this.props.outages[this.props.outageId] ? 
-        this.props.outages[this.props.outageId] : {}
-
+    this.props.outages[this.props.outageId] : {}
+    
     const updates = outage.updates && outage.updates.length > 0 ?
-      outage.updates : "There are currently no updates"
+    outage.updates : [];
 
     if (this.props.outages[this.props.outageId] === undefined ) {
       return (
@@ -64,7 +64,7 @@ class OutageDetailCard extends Component {
               updateOutage={this.props.updateOutage}
             />
           </div>
-        <div className="card-footer text-muted">{moment(outage.startTime).format("MMMM D, YYYY")}</div>
+        <div className="card-footer text-muted">{moment(outage.startTime).format("MMMM D, YYYY hh:mm:ss a")}</div>
         </div>;
     }
   }

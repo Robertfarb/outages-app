@@ -56,7 +56,7 @@ class OutageUpdateForm extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <p className="lead text-center">Add Outage Outage Update</p>
+              <p className="lead text-center">Add Outage Update</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                 <label>Outage Num
